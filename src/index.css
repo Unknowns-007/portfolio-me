@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gruvbox-bg: #282828;
+  --color-gruvbox-fg: #ebdbb2;
+  --color-gruvbox-red: #cc241d;
+  --color-gruvbox-green: #98971a;
+  --color-gruvbox-yellow: #d79921;
+  --color-gruvbox-blue: #458588;
+  --color-gruvbox-purple: #b16286;
+  --color-gruvbox-aqua: #689d6a;
+  --color-gruvbox-orange: #d65d0e;
+  --color-gruvbox-gray: #928374;
+  --color-gruvbox-bgHard: #1d2021;
+  --color-gruvbox-bgSoft: #32302f;
+
+  --font-mono: monospace, ui-monospace, SFMono-Regular;
+}
+
+@layer base {
+
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--color-gruvbox-bg);
+    color: var(--color-gruvbox-fg);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #1d2021;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3c3836;
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #504945;
+  }
+}
