@@ -9,7 +9,7 @@ const CodeRow = ({ line, content, delay }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay }}
         >
-            <div className="w-12 text-right pr-4 text-gruvbox-gray select-none group-hover:text-gruvbox-fg transition-colors leading-relaxed">
+            <div className="hidden md:block w-12 text-right pr-4 text-gruvbox-gray select-none group-hover:text-gruvbox-fg transition-colors leading-relaxed">
                 {line}
             </div>
             <div className="flex-1 font-mono whitespace-pre-wrap break-words leading-relaxed">
@@ -206,7 +206,7 @@ const About = () => {
     return (
         <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base">
             <motion.div
-                className="w-full pt-4 pb-20"
+                className="w-full pt-4 pb-20 px-4 md:px-0"
                 variants={container}
                 initial="hidden"
                 animate="show"
