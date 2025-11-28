@@ -9,6 +9,8 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    // Ensure output directory is empty before building
+    emptyOutDir: true,
     // Reduce chunk size warnings
     chunkSizeWarningLimit: 1000,
     // Optimize dependencies by splitting into separate chunks
