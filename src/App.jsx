@@ -99,7 +99,7 @@ function App() {
       {/* Top Buffer Line */}
       <div className="flex bg-gruvbox-bgHard text-sm overflow-x-auto scrollbar-hide border-b border-gruvbox-bgSoft relative z-10">
         <div className="flex items-center px-4 py-2 bg-gruvbox-bgSoft text-gruvbox-fg font-bold min-w-fit border-r border-gruvbox-bg">
-          <span className="mr-2">NEOVIM</span>
+          <span className="mr-2">VSCode</span>
         </div>
         <AnimatePresence initial={false}>
           {files.map(file => (
@@ -196,7 +196,7 @@ function App() {
         )}
 
         {/* Editor Content */}
-        <div className="flex-1 flex flex-col bg-transparent overflow-hidden relative">
+        <main className="flex-1 flex flex-col bg-transparent overflow-hidden relative">
           {/* Breadcrumbs / File Path (Optional visual aid) */}
           <div className="px-4 py-1 text-xs text-gruvbox-gray bg-gruvbox-bg border-b border-gruvbox-bgSoft flex justify-between items-center">
             <span>portfolio &gt; src &gt; {activeFileData?.name}</span>
@@ -207,7 +207,7 @@ function App() {
               {renderContent()}
             </PageTransition>
           </AnimatePresence>
-        </div>
+        </main>
       </div>
 
       {/* Status Line */}
@@ -238,7 +238,7 @@ function App() {
           <span className="text-gruvbox-blue">Ln 1, Col 1</span>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

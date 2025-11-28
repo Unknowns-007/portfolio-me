@@ -57,19 +57,19 @@ const Home = ({ navigateToFile }) => {
                     />
                 </motion.div>
                 <div className="text-center md:text-left">
-                    <div className="text-4xl md:text-6xl font-bold text-gruvbox-yellow mb-2 flex justify-center md:justify-start items-center min-h-[60px]">
+                    <h1 className="text-4xl md:text-6xl font-bold text-gruvbox-yellow mb-2 flex justify-center md:justify-start items-center min-h-[60px]">
                         <span>{text}</span>
                         <motion.span
                             animate={{ opacity: [0, 1, 0] }}
                             transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                             className="inline-block w-3 h-8 md:h-12 bg-gruvbox-yellow ml-1"
                         />
-                    </div>
+                    </h1>
                     <motion.p
                         className="text-xl text-gruvbox-blue mb-4"
                         variants={itemVariants}
                     >
-                         Developer • Quick Learner
+                        Developer • Quick Learner
                     </motion.p>
                     <motion.div
                         className="hidden md:block text-xs text-gruvbox-gray whitespace-pre"

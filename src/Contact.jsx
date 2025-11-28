@@ -2,6 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import CodeLineNumbers from './CodeLineNumbers';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const validateEmail = (email) => {
+    return String(email)
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+};
+
 const Contact = () => {
     const [step, setStep] = useState(0);
     const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -34,6 +42,11 @@ const Contact = () => {
                 setHistory(prev => [...prev, { type: 'input', label: 'Name', value }]);
                 setStep(1);
             } else if (step === 1) {
+                if (!validateEmail(value)) {
+                    setHistory(prev => [...prev, { type: 'input', label: 'Email', value }, { type: 'error', value: 'Error: Invalid email format. Please try again.' }]);
+                    e.target.value = '';
+                    return;
+                }
                 setForm(prev => ({ ...prev, email: value }));
                 setHistory(prev => [...prev, { type: 'input', label: 'Email', value }]);
                 setStep(2);
@@ -64,7 +77,7 @@ const Contact = () => {
     return (
         <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base" onClick={() => inputRef.current?.focus()}>
             <div className="hidden md:block">
-                <CodeLineNumbers lines={35} />
+                <CodeLineNumbers lines={50} />
             </div>
             <motion.div
                 className="p-4 pt-0 md:pt-0 pb-20 text-gruvbox-fg w-full"
@@ -87,6 +100,10 @@ const Contact = () => {
                                     <span className="text-gruvbox-green whitespace-nowrap">"{item.label}: "</span>
                                     <span className="text-gruvbox-fg break-all">{item.value}</span>
                                 </div>
+                            ) : item.type === 'error' ? (
+                                <div className="text-gruvbox-red mt-2 mb-4">
+                                    {item.value}
+                                </div>
                             ) : (
                                 <div className="text-gruvbox-aqua mt-2 mb-4">
                                     &gt; {item.value}
@@ -105,7 +122,7 @@ const Contact = () => {
                             <div className="flex-1 min-w-[150px] relative">
                                 <input
                                     ref={inputRef}
-                                    type={step === 1 ? "email" : "text"}
+                                    type="text"
                                     className="bg-transparent border-none outline-none text-gruvbox-fg w-full caret-gruvbox-fg"
                                     autoComplete="off"
                                     onKeyDown={handleKeyDown}
@@ -141,6 +158,12 @@ const Contact = () => {
                         <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">EMAIL</span>=
                         <a href="mailto:vignesh2262006@gmail.com" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
                             "vignesh2262006@gmail.com"
+                        </a>
+                    </p>
+                    <p className="flex flex-wrap items-center gap-2">
+                        <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">PHONE</span>=
+                        <a href="tel:+919876543210" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                            "+91 98765 43210"
                         </a>
                     </p>
                 </div>

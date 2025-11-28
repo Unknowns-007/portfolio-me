@@ -17,6 +17,15 @@ const Projects = () => {
 
     const projects = [
         {
+            name: "IDE Portfolio",
+            tech: ["React", "Vite", "Tailwind CSS"],
+            desc: "A developer-centric portfolio website designed to mimic the Visual Studio Code interface, featuring a fully functional command palette, file navigation, and customizable themes.",
+            link: "#",
+            github: "https://github.com/Unknowns-007/portfolio-me",
+            stars: 0,
+            forks: 0
+        },
+        {
             name: "Harmony Hub",
             tech: ["React", "Firebase", "Tailwind"],
             desc: "Architected a scalable music streaming platform featuring real-time state synchronization, secure authentication flows, and optimized asset delivery.",
