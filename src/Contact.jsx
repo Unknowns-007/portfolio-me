@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CodeLineNumbers from './CodeLineNumbers';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from './components/SEO';
 
 const validateEmail = (email) => {
     return String(email)
@@ -75,100 +76,108 @@ const Contact = () => {
     };
 
     return (
-        <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base" onClick={() => inputRef.current?.focus()}>
-            <div className="hidden md:block">
-                <CodeLineNumbers lines={50} />
-            </div>
-            <motion.div
-                className="p-4 pt-0 md:pt-0 pb-20 text-gruvbox-fg w-full"
-                variants={container}
-                initial="hidden"
-                animate="show"
-            >
-                <div className="mb-6">
-                    <p className="text-gruvbox-gray">#!/bin/bash</p>
-                    <p className="mt-2"><span className="text-gruvbox-purple">echo</span> <span className="text-gruvbox-green">"Initializing communication protocol..."</span></p>
+        <>
+            <SEO
+                title="Contact | Vignesh R - Get in Touch"
+                description="Get in touch with Vignesh R. Connect via email, LinkedIn, GitHub, or phone. Available for web development opportunities and collaborations."
+                keywords="Vignesh R, Contact, Email, LinkedIn, GitHub, Web Developer, Hire Developer"
+                url="https://vigneshr.me/#contact"
+            />
+            <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base" onClick={() => inputRef.current?.focus()}>
+                <div className="hidden md:block">
+                    <CodeLineNumbers lines={50} />
                 </div>
+                <motion.div
+                    className="p-4 pt-0 md:pt-0 pb-20 text-gruvbox-fg w-full"
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <div className="mb-6">
+                        <p className="text-gruvbox-gray">#!/bin/bash</p>
+                        <p className="mt-2"><span className="text-gruvbox-purple">echo</span> <span className="text-gruvbox-green">"Initializing communication protocol..."</span></p>
+                    </div>
 
-                <div className="space-y-2">
-                    {history.map((item, index) => (
-                        <div key={index} className="flex flex-col">
-                            {item.type === 'input' ? (
-                                <div className="flex flex-wrap items-center gap-2">
-                                    <span className="text-gruvbox-yellow">read</span>
-                                    <span className="text-gruvbox-fg">-p</span>
-                                    <span className="text-gruvbox-green whitespace-nowrap">"{item.label}: "</span>
-                                    <span className="text-gruvbox-fg break-all">{item.value}</span>
-                                </div>
-                            ) : item.type === 'error' ? (
-                                <div className="text-gruvbox-red mt-2 mb-4">
-                                    {item.value}
-                                </div>
-                            ) : (
-                                <div className="text-gruvbox-aqua mt-2 mb-4">
-                                    &gt; {item.value}
-                                </div>
-                            )}
-                        </div>
-                    ))}
-
-                    {step < 3 && (
-                        <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-gruvbox-yellow">read</span>
-                            <span className="text-gruvbox-fg">-p</span>
-                            <span className="text-gruvbox-green whitespace-nowrap">
-                                "{step === 0 ? 'Name' : step === 1 ? 'Email' : 'Message'}: "
-                            </span>
-                            <div className="flex-1 min-w-[150px] relative">
-                                <input
-                                    ref={inputRef}
-                                    type="text"
-                                    className="bg-transparent border-none outline-none text-gruvbox-fg w-full caret-gruvbox-fg"
-                                    autoComplete="off"
-                                    onKeyDown={handleKeyDown}
-                                />
+                    <div className="space-y-2">
+                        {history.map((item, index) => (
+                            <div key={index} className="flex flex-col">
+                                {item.type === 'input' ? (
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        <span className="text-gruvbox-yellow">read</span>
+                                        <span className="text-gruvbox-fg">-p</span>
+                                        <span className="text-gruvbox-green whitespace-nowrap">"{item.label}: "</span>
+                                        <span className="text-gruvbox-fg break-all">{item.value}</span>
+                                    </div>
+                                ) : item.type === 'error' ? (
+                                    <div className="text-gruvbox-red mt-2 mb-4">
+                                        {item.value}
+                                    </div>
+                                ) : (
+                                    <div className="text-gruvbox-aqua mt-2 mb-4">
+                                        &gt; {item.value}
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    )}
+                        ))}
 
-                    {isSubmitting && (
-                        <div className="text-gruvbox-orange animate-pulse mt-2">
-                            Sending packet...
-                        </div>
-                    )}
+                        {step < 3 && (
+                            <div className="flex flex-wrap items-center gap-2">
+                                <span className="text-gruvbox-yellow">read</span>
+                                <span className="text-gruvbox-fg">-p</span>
+                                <span className="text-gruvbox-green whitespace-nowrap">
+                                    "{step === 0 ? 'Name' : step === 1 ? 'Email' : 'Message'}: "
+                                </span>
+                                <div className="flex-1 min-w-[150px] relative">
+                                    <input
+                                        ref={inputRef}
+                                        type="text"
+                                        className="bg-transparent border-none outline-none text-gruvbox-fg w-full caret-gruvbox-fg"
+                                        autoComplete="off"
+                                        onKeyDown={handleKeyDown}
+                                    />
+                                </div>
+                            </div>
+                        )}
 
-                    <div ref={bottomRef} />
-                </div>
+                        {isSubmitting && (
+                            <div className="text-gruvbox-orange animate-pulse mt-2">
+                                Sending packet...
+                            </div>
+                        )}
 
-                <div className="mt-12 space-y-2 border-t border-gruvbox-bgSoft pt-6">
-                    <p className="text-gruvbox-gray"># Social Links</p>
-                    <p className="flex flex-wrap items-center gap-2">
-                        <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">GITHUB</span>=
-                        <a href="https://github.com/Unknowns-007" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
-                            "Unknowns-007"
-                        </a>
-                    </p>
-                    <p className="flex flex-wrap items-center gap-2">
-                        <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">LINKEDIN</span>=
-                        <a href="https://www.linkedin.com/in/vignesh-r-7727582b7?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
-                            "vignesh-r"
-                        </a>
-                    </p>
-                    <p className="flex flex-wrap items-center gap-2">
-                        <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">EMAIL</span>=
-                        <a href="mailto:vignesh2262006@gmail.com" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
-                            "vignesh2262006@gmail.com"
-                        </a>
-                    </p>
-                    <p className="flex flex-wrap items-center gap-2">
-                        <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">PHONE</span>=
-                        <a href="tel:+919876543210" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
-                            "+91 98765 43210"
-                        </a>
-                    </p>
-                </div>
-            </motion.div>
-        </div>
+                        <div ref={bottomRef} />
+                    </div>
+
+                    <div className="mt-12 space-y-2 border-t border-gruvbox-bgSoft pt-6">
+                        <p className="text-gruvbox-gray"># Social Links</p>
+                        <p className="flex flex-wrap items-center gap-2">
+                            <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">GITHUB</span>=
+                            <a href="https://github.com/Unknowns-007" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                                "Unknowns-007"
+                            </a>
+                        </p>
+                        <p className="flex flex-wrap items-center gap-2">
+                            <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">LINKEDIN</span>=
+                            <a href="https://www.linkedin.com/in/vignesh-r-7727582b7?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                                "vignesh-r"
+                            </a>
+                        </p>
+                        <p className="flex flex-wrap items-center gap-2">
+                            <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">EMAIL</span>=
+                            <a href="mailto:vignesh2262006@gmail.com" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                                "vignesh2262006@gmail.com"
+                            </a>
+                        </p>
+                        <p className="flex flex-wrap items-center gap-2">
+                            <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">PHONE</span>=
+                            <a href="tel:+919876543210" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                                "+91 98765 43210"
+                            </a>
+                        </p>
+                    </div>
+                </motion.div>
+            </div>
+        </>
     );
 };
 

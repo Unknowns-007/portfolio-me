@@ -1,6 +1,7 @@
 import React from 'react';
 import CodeLineNumbers from './CodeLineNumbers';
 import { motion } from 'framer-motion';
+import SEO from './components/SEO';
 
 const Experience = () => {
     const experiences = [
@@ -44,55 +45,63 @@ const Experience = () => {
     };
 
     return (
-        <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base">
-            <CodeLineNumbers lines={45} />
-            <motion.div
-                className="p-4 pt-6 md:pt-8 pb-20 text-gruvbox-fg w-full font-mono"
-                variants={container}
-                initial="hidden"
-                animate="show"
-            >
-                {experiences.map((exp, index) => (
-                    <motion.div key={index} className="mb-8" variants={item}>
-                        <div className="mb-2">
-                            <span className="text-gruvbox-gray">[{new Date().toISOString().split('T')[0]} 10:00:{String(index * 15).padStart(2, '0')}] </span>
-                            <span className={`${exp.status === 'INFO' ? 'text-gruvbox-blue' :
-                                exp.status === 'WARN' ? 'text-gruvbox-yellow' : 'text-gruvbox-green'
-                                } font-bold`}>
-                                [{exp.status}]
-                            </span>
-                            <span className="text-gruvbox-fg"> Process started: </span>
-                            <span className="text-gruvbox-purple font-bold">{exp.company}</span>
-                        </div>
-
-                        <div className="pl-4 border-l-2 border-gruvbox-bgSoft ml-2">
-                            <div className="mb-1">
-                                <span className="text-gruvbox-gray">Role: </span>
-                                <span className="text-gruvbox-aqua">{exp.role}</span>
-                            </div>
+        <>
+            <SEO
+                title="Experience | Vignesh R - Web Developer"
+                description="Professional experience of Vignesh R as a Web Developer Intern at Spark Tech and TEK Pyramid. Specialized in React, Firebase, and responsive web development."
+                keywords="Vignesh R, Experience, Web Developer, Internship, Spark Tech, TEK Pyramid, React, Firebase"
+                url="https://vigneshr.me/#experience"
+            />
+            <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base">
+                <CodeLineNumbers lines={45} />
+                <motion.div
+                    className="p-4 pt-6 md:pt-8 pb-20 text-gruvbox-fg w-full font-mono"
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                >
+                    {experiences.map((exp, index) => (
+                        <motion.div key={index} className="mb-8" variants={item}>
                             <div className="mb-2">
-                                <span className="text-gruvbox-gray">Duration: </span>
-                                <span className="text-gruvbox-orange">{exp.period}</span>
+                                <span className="text-gruvbox-gray">[{new Date().toISOString().split('T')[0]} 10:00:{String(index * 15).padStart(2, '0')}] </span>
+                                <span className={`${exp.status === 'INFO' ? 'text-gruvbox-blue' :
+                                    exp.status === 'WARN' ? 'text-gruvbox-yellow' : 'text-gruvbox-green'
+                                    } font-bold`}>
+                                    [{exp.status}]
+                                </span>
+                                <span className="text-gruvbox-fg"> Process started: </span>
+                                <span className="text-gruvbox-purple font-bold">{exp.company}</span>
                             </div>
-                            <ul className="list-none space-y-1">
-                                {exp.achievements.map((achievement, i) => (
-                                    <li key={i} className="text-gruvbox-fg/80 flex items-start">
-                                        <span className="text-gruvbox-gray mr-2">-</span>
-                                        {achievement}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+
+                            <div className="pl-4 border-l-2 border-gruvbox-bgSoft ml-2">
+                                <div className="mb-1">
+                                    <span className="text-gruvbox-gray">Role: </span>
+                                    <span className="text-gruvbox-aqua">{exp.role}</span>
+                                </div>
+                                <div className="mb-2">
+                                    <span className="text-gruvbox-gray">Duration: </span>
+                                    <span className="text-gruvbox-orange">{exp.period}</span>
+                                </div>
+                                <ul className="list-none space-y-1">
+                                    {exp.achievements.map((achievement, i) => (
+                                        <li key={i} className="text-gruvbox-fg/80 flex items-start">
+                                            <span className="text-gruvbox-gray mr-2">-</span>
+                                            {achievement}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </motion.div>
+                    ))}
+                    <motion.div className="mt-4" variants={item}>
+                        <span className="text-gruvbox-gray">[{new Date().toISOString().split('T')[0]} 10:45:00] </span>
+                        <span className="text-gruvbox-red font-bold">[CRITICAL]</span>
+                        <span className="text-gruvbox-fg"> Waiting for next challenge...</span>
+                        <span className="animate-pulse">_</span>
                     </motion.div>
-                ))}
-                <motion.div className="mt-4" variants={item}>
-                    <span className="text-gruvbox-gray">[{new Date().toISOString().split('T')[0]} 10:45:00] </span>
-                    <span className="text-gruvbox-red font-bold">[CRITICAL]</span>
-                    <span className="text-gruvbox-fg"> Waiting for next challenge...</span>
-                    <span className="animate-pulse">_</span>
                 </motion.div>
-            </motion.div>
-        </div>
+            </div>
+        </>
     );
 };
 

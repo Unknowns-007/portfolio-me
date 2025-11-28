@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SEO from './components/SEO';
 
 const CodeRow = ({ line, content, delay }) => {
     return (
@@ -204,23 +205,31 @@ const About = () => {
     ];
 
     return (
-        <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base">
-            <motion.div
-                className="w-full pt-4 pb-20 px-4 md:px-0"
-                variants={container}
-                initial="hidden"
-                animate="show"
-            >
-                {aboutData.map((item, index) => (
-                    <CodeRow
-                        key={index}
-                        line={item.line}
-                        content={item.content}
-                        delay={index * 0.05}
-                    />
-                ))}
-            </motion.div>
-        </div>
+        <>
+            <SEO
+                title="About | Vignesh R - Full Stack Developer"
+                description="Learn more about Vignesh R, a Full Stack Developer specializing in React.js, Node.js, and modern web technologies. Based in Chennai, India."
+                keywords="Vignesh R, About, Full Stack Developer, React, Node.js, JavaScript, Skills, Education"
+                url="https://vigneshr.me/#about"
+            />
+            <div className="flex h-full overflow-y-auto custom-scrollbar font-mono text-sm md:text-base">
+                <motion.div
+                    className="w-full pt-4 pb-20 px-4 md:px-0"
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                >
+                    {aboutData.map((item, index) => (
+                        <CodeRow
+                            key={index}
+                            line={item.line}
+                            content={item.content}
+                            delay={index * 0.05}
+                        />
+                    ))}
+                </motion.div>
+            </div>
+        </>
     );
 };
 
