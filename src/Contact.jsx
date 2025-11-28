@@ -171,7 +171,7 @@ const Contact = () => {
                         <p className="flex flex-wrap items-center gap-2">
                             <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">PHONE</span>=
                             <a href="tel:+919876543210" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
-                                "+91 98765 43210"
+                                "+91 6382774587"
                             </a>
                         </p>
                     </div>
