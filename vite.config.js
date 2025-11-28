@@ -9,6 +9,8 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    // Output to 'build' folder to bypass Cloudflare 'dist' cache
+    outDir: 'build',
     // Ensure output directory is empty before building
     emptyOutDir: true,
     // Reduce chunk size warnings
