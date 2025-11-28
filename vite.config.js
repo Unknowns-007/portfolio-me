@@ -8,6 +8,20 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    // Reduce chunk size warnings
+    chunkSizeWarningLimit: 1000,
+    // Optimize dependencies by splitting into separate chunks
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion', '@tsparticles/react', '@tsparticles/slim'],
+          'icons-vendor': ['lucide-react']
+        }
+      }
+    }
+  },
   server: {
     // Bind to all network interfaces so other devices on your LAN can access the dev server
     host: true,
