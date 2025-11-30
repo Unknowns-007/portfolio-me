@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
+    tailwindcss(), // Tailwind will purge unused classes based on ./src/**/*.{js,jsx,ts,tsx,html} and ./public/**/*.html,
   ],
   build: {
     // Output to 'build' folder to bypass Cloudflare 'dist' cache

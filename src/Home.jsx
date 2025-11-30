@@ -58,11 +58,17 @@ const Home = ({ navigateToFile }) => {
                         variants={itemVariants}
                         whileHover={{ scale: 1.05, borderColor: '#fabd2f' }}
                     >
-                        <img
-                            src={Image}
-                            alt="Vignesh R"
-                            className="w-full h-full object-cover"
-                        />
+                        <picture>
+                            <source srcSet="/assets/avatar-200.webp 200w, /assets/avatar-400.webp 400w" sizes="(max-width: 600px) 100vw, 400px" type="image/webp" />
+                            <img
+                                src="/assets/avatar-400.jpg"
+                                alt="Portrait of Vignesh R, full‑stack developer"
+                                width={400}
+                                height={400}
+                                loading="lazy"
+                                className="object-cover w-full h-full"
+                            />
+                        </picture>
                     </motion.div>
                     <div className="text-center md:text-left">
                         <h1 className="text-4xl md:text-6xl font-bold text-gruvbox-yellow mb-2 flex justify-center md:justify-start items-center min-h-[60px]">
