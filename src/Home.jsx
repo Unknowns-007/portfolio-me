@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Hash, FileCode, Cpu, FileText, Terminal, GitCommit } from 'lucide-react';
+import { Hash, FileCode, Cpu, FileText, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Image from './assets/img.jpg'
 import SEO from './components/SEO';
 
 const Home = ({ navigateToFile }) => {
     const [text, setText] = useState('');
-    const fullText = "Vignesh R";
+    const fullText = 'Vignesh R';
 
     useEffect(() => {
         let currentIndex = 0;
@@ -17,24 +16,18 @@ const Home = ({ navigateToFile }) => {
             } else {
                 clearInterval(interval);
             }
-        }, 150); // Typing speed
-
+        }, 150);
         return () => clearInterval(interval);
     }, []);
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
+        visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
     };
 
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 }
+        visible: { opacity: 1, y: 0 },
     };
 
     return (
@@ -58,11 +51,11 @@ const Home = ({ navigateToFile }) => {
                         variants={itemVariants}
                         whileHover={{ scale: 1.05, borderColor: '#fabd2f' }}
                     >
-                        <picture>
+                        <picture className="w-full h-full block">
                             <source srcSet="/assets/avatar-200.webp 200w, /assets/avatar-400.webp 400w" sizes="(max-width: 600px) 100vw, 400px" type="image/webp" />
                             <img
                                 src="/assets/avatar-400.jpg"
-                                alt="Portrait of Vignesh R, full‑stack developer"
+                                alt="Vignesh R"
                                 width={400}
                                 height={400}
                                 loading="lazy"
@@ -75,36 +68,26 @@ const Home = ({ navigateToFile }) => {
                             <span>{text}</span>
                             <motion.span
                                 animate={{ opacity: [0, 1, 0] }}
-                                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                                transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
                                 className="inline-block w-3 h-8 md:h-12 bg-gruvbox-yellow ml-1"
                             />
                         </h1>
-                        <motion.p
-                            className="text-xl text-gruvbox-blue mb-4"
-                            variants={itemVariants}
-                        >
+                        <motion.p className="text-xl text-gruvbox-blue mb-4" variants={itemVariants}>
                             Developer • Quick Learner
                         </motion.p>
-                        <motion.div
-                            className="hidden md:block text-xs text-gruvbox-gray whitespace-pre"
-                            variants={itemVariants}
-                        >
-                            {`
-   \\ \\      / /__| | ___ ___  _ __ ___   ___ 
-    \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ \` _ \\ / _ \\
-     \\ V  V /  __/ | (_ (_) | | | | | |  __/
-      \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|
-`}
+                        <motion.div className="hidden md:block text-xs text-gruvbox-gray whitespace-pre" variants={itemVariants}>
+                            {`\\  __  __      _       _       
+ \\ |  \\/  | ___| |_ ___| |__    
+ \\ | |\\/| |/ _ \\ __/ __| '_ \\   
+ \\ | |  | |  __/ |_\\__ \\ | | |  
+ \\ |_|  |_|\\___|\\__|___/_| |_|`}
                         </motion.div>
                     </div>
                 </div>
 
+                {/* Quick Access */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Quick Access */}
-                    <motion.div
-                        className="bg-gruvbox-bgSoft p-6 rounded-lg border border-gruvbox-bgHard"
-                        variants={itemVariants}
-                    >
+                    <motion.div className="bg-gruvbox-bgSoft p-6 rounded-lg border border-gruvbox-bgHard" variants={itemVariants}>
                         <h2 className="text-xl font-bold text-gruvbox-orange mb-4 flex items-center gap-2">
                             <Hash size={20} /> Quick Access
                         </h2>
@@ -116,7 +99,7 @@ const Home = ({ navigateToFile }) => {
                                 <FileCode className="text-gruvbox-blue group-hover:text-gruvbox-fg" size={20} />
                                 <div>
                                     <span className="block text-gruvbox-fg">Edit init.lua</span>
-                                    <span className="text-xs text-gruvbox-gray">View Bio & Skills</span>
+                                    <span className="text-xs text-gruvbox-gray">View Bio &amp; Skills</span>
                                 </div>
                             </button>
                             <button
@@ -140,10 +123,10 @@ const Home = ({ navigateToFile }) => {
                                 </div>
                             </button>
                         </div>
-                    </motion.div >
+                    </motion.div>
 
                     {/* Certifications */}
-                    < motion.div className="bg-gruvbox-bgSoft p-6 rounded-lg border border-gruvbox-bgHard" variants={itemVariants}>
+                    <motion.div className="bg-gruvbox-bgSoft p-6 rounded-lg border border-gruvbox-bgHard" variants={itemVariants}>
                         <h2 className="text-xl font-bold text-gruvbox-aqua mb-4 flex items-center gap-2">
                             <FileText size={20} /> Certifications
                         </h2>
@@ -165,7 +148,7 @@ const Home = ({ navigateToFile }) => {
                                 <span>Keyboard Player (Grade 2 Certified)</span>
                             </li>
                         </ul>
-                    </motion.div >
+                    </motion.div>
                 </div>
             </motion.div>
         </>
