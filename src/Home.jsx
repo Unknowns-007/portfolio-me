@@ -76,11 +76,12 @@ const Home = ({ navigateToFile }) => {
                             Developer • Quick Learner
                         </motion.p>
                         <motion.div className="hidden md:block text-xs text-gruvbox-gray whitespace-pre" variants={itemVariants}>
-                            {`\\  __  __      _       _       
- \\ |  \\/  | ___| |_ ___| |__    
- \\ | |\\/| |/ _ \\ __/ __| '_ \\   
- \\ | |  | |  __/ |_\\__ \\ | | |  
- \\ |_|  |_|\\___|\\__|___/_| |_|`}
+                            {`
+   \\ \\      / /__| | ___ ___  _ __ ___   ___ 
+    \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ \` _ \\ / _ \\
+     \\ V  V /  __/ | (_ (_) | | | | | |  __/
+      \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|
+`}
                         </motion.div>
                     </div>
                 </div>
