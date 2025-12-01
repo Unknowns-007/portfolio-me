@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Hash, FileCode, Cpu, FileText, Terminal } from 'lucide-react';
+import { Hash, FileCode, Cpu, FileText, Terminal, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from './components/SEO';
 
@@ -93,6 +93,18 @@ const Home = ({ navigateToFile }) => {
                             <Hash size={20} /> Quick Access
                         </h2>
                         <div className="grid grid-cols-1 gap-3">
+                            <a
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 p-3 bg-gruvbox-bg hover:bg-gruvbox-bgHard transition-colors rounded text-left group"
+                            >
+                                <Download className="text-gruvbox-purple group-hover:text-gruvbox-fg" size={20} />
+                                <div>
+                                    <span className="block text-gruvbox-fg">My Resume</span>
+                                    <span className="text-xs text-gruvbox-gray">View &amp; Download</span>
+                                </div>
+                            </a>
                             <button
                                 onClick={() => navigateToFile('about')}
                                 className="flex items-center gap-3 p-3 bg-gruvbox-bg hover:bg-gruvbox-bgHard transition-colors rounded text-left group"
@@ -123,6 +135,7 @@ const Home = ({ navigateToFile }) => {
                                     <span className="text-xs text-gruvbox-gray">Contact Me</span>
                                 </div>
                             </button>
+
                         </div>
                     </motion.div>
 
