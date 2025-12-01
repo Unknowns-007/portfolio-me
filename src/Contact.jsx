@@ -174,6 +174,12 @@ const Contact = () => {
                                 "+91 6382774587"
                             </a>
                         </p>
+                        <p className="flex flex-wrap items-center gap-2">
+                            <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">RESUME</span>=
+                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
+                                "View Resume (PDF)"
+                            </a>
+                        </p>
                     </div>
                 </motion.div>
             </div>
