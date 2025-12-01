@@ -149,7 +149,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-12 space-y-2 border-t border-gruvbox-bgSoft pt-6">
-                        <p className="text-gruvbox-gray"># Social Links</p>
+                        <p className="text-gruvbox-gray"># Social Links (contact through mail)</p>
                         <p className="flex flex-wrap items-center gap-2">
                             <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">GITHUB</span>=
                             <a href="https://github.com/Unknowns-007" target="_blank" rel="noopener noreferrer" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
@@ -162,7 +162,7 @@ const Contact = () => {
                                 "vignesh-r"
                             </a>
                         </p>
-                        <p className="flex flex-wrap items-center gap-2">
+                        <p className="flex flex-nowrap items-center gap-2">
                             <span className="text-gruvbox-blue">export</span> <span className="text-gruvbox-yellow">EMAIL</span>=
                             <a href="mailto:vignesh2262006@gmail.com" className="text-gruvbox-green hover:underline hover:text-gruvbox-aqua transition-colors break-all">
                                 "vignesh2262006@gmail.com"
