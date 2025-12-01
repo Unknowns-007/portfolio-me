@@ -95,6 +95,7 @@ const Home = ({ navigateToFile }) => {
                         <div className="grid grid-cols-1 gap-3">
                             <a
                                 href="/resume.pdf"
+                                download="Vignesh_R_Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-3 p-3 bg-gruvbox-bg hover:bg-gruvbox-bgHard transition-colors rounded text-left group"
