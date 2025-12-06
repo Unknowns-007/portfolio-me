@@ -37,10 +37,10 @@ function App() {
 
   const files = [
     { id: 'home', name: 'README.md', icon: Hash, color: 'text-gruvbox-yellow' },
-    { id: 'about', name: 'init.lua', icon: FileCode, color: 'text-gruvbox-blue' },
+    { id: 'about', name: 'about.lua', icon: FileCode, color: 'text-gruvbox-blue' },
     { id: 'projects', name: 'projects.rs', icon: Cpu, color: 'text-gruvbox-orange' },
     { id: 'experience', name: 'experience.log', icon: FileText, color: 'text-gruvbox-aqua' },
-    { id: 'contact', name: 'deploy.sh', icon: Terminal, color: 'text-gruvbox-green' },
+    { id: 'contact', name: 'contact.sh', icon: Terminal, color: 'text-gruvbox-green' },
   ];
 
   // Keyboard Shortcuts
