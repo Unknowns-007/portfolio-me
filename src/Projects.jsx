@@ -30,7 +30,7 @@ const Projects = () => {
             name: "Harmony Hub",
             tech: ["React", "Firebase", "Tailwind"],
             desc: "Architected a scalable music streaming platform featuring real-time state synchronization, secure authentication flows, and optimized asset delivery.",
-            link: "#",
+            link: "https://harmony-hub-a4beb.web.app",
             github: "https://github.com/Unknowns-007/Harmony-Hub",
             stars: 12,
             forks: 4
@@ -39,7 +39,7 @@ const Projects = () => {
             name: "Sparfest Portal",
             tech: ["HTML", "CSS", "JavaScript"],
             desc: "Engineered the official event portal for IEEE Sparfest, implementing a responsive grid system and optimizing load times for high-traffic periods.",
-            link: "#",
+            link: "https://sparkfest2k24.netlify.app/treasurehunt",
             github: "#",
             stars: 8,
             forks: 2
